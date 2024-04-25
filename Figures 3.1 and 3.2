@@ -1,0 +1,19 @@
+#Packages which must be installed to reconstruct the phylogenetic trees
+if (!requireNamespace("BiocManager", quietly=TRUE))
+install.packages("BiocManager")
+BiocManager::install("msa")
+require(msa)
+require(ape)
+require(phangorn)
+################################################################################
+###############################################################################
+#Aligning the DNA sequences
+
+covid_region_B_msa<-readDNAStringSet("covid_region_B.fasta",format="fasta") #Loading in the DNA sequences from the genomic dataset
+covid_region_B_aligned<-msa(covid_region_B_msa, method="Muscle") #Producing the alignment for the dataset
+print(covid_region_B_aligned,show="complete") 
+covid_region_B_aligned_DNAbin<-as.DNAbin(covid_region_B_aligned) #Making the alignment into "DNAbin" format so it can be used to show the alignment in a plot
+covid_region_B_aligned_DNAbin_trimmed<-covid_region_B_aligned_DNAbin[,199:5776] #Making sure all the DNA sequences are over the region that needs to be looked at
+image.DNAbin(covid_region_B_aligned_DNAbin_trimmed,cex=1, xlab = "Site number")#Create a plot of the alignment (Figure 3.1)
+image.DNAbin(covid_region_B_aligned_DNAbin_trimmed[,1:200],cex=1, xlab = "Site number")#plot alignment for first 200 sites (Figure 3.2)
+covid_region_B_aligned_phyDat<-phyDat(covid_region_B_aligned_DNAbin_trimmed) #The 'phangorn' package is used to reconstruct the trees, so converting the data into phyDat allows the package to use it
