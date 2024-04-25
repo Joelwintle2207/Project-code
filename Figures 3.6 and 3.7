@@ -1,0 +1,22 @@
+###############################################################################
+#Example tree of 3 bases to demonstrate max likelihood
+phy_tree <- read.tree(text = "(((A,T),G));") #Making a basic phylogenetic tree with the bases A, T and G as the leaves
+plot(phy_tree) #Plotting this basic tree (Figure 3.6)
+################################################################################
+
+################################################################################
+#Reconstruction of a phylogenetic tree using maximum Likelihood 
+prelim_fit <- pml(upgma_tree, covid_region_B_aligned_phyDat) #Setting the base tree as the UPGMA tree
+logLik(prelim_fit) #The log likelihood of the UPGMA tree
+fitJC <- optim.pml(prelim_fit, model = "JC", rearrangement = "stochastic") #Running the maximum likelihood algorithm to select the tree with the greatest likelihood
+logLik(fitJC) #The log likelihood of the chosen tree
+
+plot(fitJC, cex=0.5, tip.color = c("black","black","black","black","red",
+                                  "black","black","black","black","black",
+                                  "black","black","black","black","black")) #The unrooted tree with the strain responsible for COVID-19 highlighted in red
+ml_jc_tree<-root(fitJC$tree,c("Bat 6","Bat 9")) #Creating the root of this tree using outgroup rooting
+plot(ml_jc_tree, cex=0.6, tip.color = c("black","black","black","black","red",
+                                         "black","black","black","black","black",
+                                         "black","black","black","black","black")) #The rooted tree created using the maximum likelihood algorithm with the strain responsible for COVID-19 highlighted in red (Figure 3.7)
+
+###############################################################################
