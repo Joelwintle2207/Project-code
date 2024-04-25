@@ -1,0 +1,7 @@
+#The first coalescent simulation for a population of equal size (Figure 2.3). A population size of 20 is kept constant by setting both N.0 (the first generation) 
+#and N.final (the current generation) equal to 20. A sample of 5 is then taken from the current generation by setting n equal to 5 and the simulation 
+#is ran over 30 generations by setting TIME equal to 30. The lines of the sampled individuals are then highlighted in blue using col.coal.
+
+set.seed(123456789)
+sim.coalescent(n = 5, TIME = 30, growth.rate = NULL, N.0 = 20, N.final = 20, 
+               col.lin = "grey", col.coal = "blue", pch = 1)
