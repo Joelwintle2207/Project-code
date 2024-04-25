@@ -6,7 +6,10 @@ require(msa)
 require(ape)
 require(phangorn)
 ################################################################################
+
 ###############################################################################
+#My genomic dataset "covid_region_b.fasta" is a fasta file which stores the genomic data for 15 different strains of coronavirus obtained from 
+#Genbank and GISAID. The sequences can be accessed through the accession number in Table 1.1 in my project
 #Aligning the DNA sequences
 
 covid_region_B_msa<-readDNAStringSet("covid_region_B.fasta",format="fasta") #Loading in the DNA sequences from the genomic dataset
