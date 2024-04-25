@@ -1,0 +1,7 @@
+#The second coalescent simulation for a population of increasing size (Figure 2.4). An increasing population by setting N.0 equal to 5 and N.final equal to 20.
+#A sample of 5 is then taken from the current generation by setting n equal to 5 and the simulation is ran over 30 generations again. The lines of 
+#the sampled individuals are then highlighted in red using col.coal.
+
+set.seed(123456789)
+sim.coalescent(n = 5, TIME = 30, growth.rate = NULL, N.0 = 5, N.final = 20,
+               col.lin = "grey", col.coal = "red", pch = 1)
