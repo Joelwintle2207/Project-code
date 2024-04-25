@@ -1,0 +1,7 @@
+#The third coalescent simulation for a population of decreasing size (Figure 2.5). An decreasing population by setting N.0 equal to 50 and N.final equal to 20.
+#A sample of 5 is then taken from the current generation by setting n equal to 5 and the simulation is ran over 30 generations again. The lines of 
+#the sampled individuals are then highlighted in green using col.coal.
+
+set.seed(1234568)
+sim.coalescent(n = 5, TIME = 30, growth.rate = NULL, N.0 = 50, N.final = 20,
+               col.lin = "grey", col.coal = "green", pch = 1)
