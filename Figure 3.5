@@ -1,0 +1,12 @@
+###############################################################################
+#Reconstructing a phylogenetic tree using maximum parsimony 
+
+mp_tree <- pratchet(covid_region_B_aligned_phyDat, method="sankoff") #Searching for the most parsimous tree using parsimony ratchet using the sankoff method
+plot(mp_tree, cex=0.6, tip.color = c("black","black","black","black","red",
+                                     "black","black","black","black","black",
+                                     "black","black","black","black","black")) #The unrooted tree with the strain responsible for COVID-19 highlighted in red
+mp_tree_rooted<-root(mp_tree,c("Bat 6","Bat 9")) #Creating the root of this tree using outgroup rooting
+plot(mp_tree_rooted, cex=0.6, tip.color = c("black","black","black","black","red",
+                                     "black","black","black","black","black",
+                                     "black","black","black","black","black")) #The rooted tree created using the maximum parsimony algorithm with the strain responsible for COVID-19 highlighted in red (Figure 3.5)
+################################################################################
