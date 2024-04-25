@@ -1,3 +1,7 @@
+#The package needed to use the function sim.coalescent
+install.packages("coalescentMCMC")
+library(coalescentMCMC)
+
 #Code used in Figure 2.1 used to explain a genealogy
 sim.coalescent(n = 1, TIME = 30, growth.rate = NULL, N.0 = 10, N.final = 10, 
                col.lin = NULL, col.coal = "orange", pch = 1) 
