@@ -1,0 +1,13 @@
+##############################################################################
+#Using the UPGMA algorithm to reconstruct a phylogenetic tree
+
+upgma_tree<-upgma(dist.ml(covid_region_B_aligned_phyDat)) #Calculating the distance between sequences using the UPGMA algorithm
+plot(upgma_tree, cex=0.7, tip.color = c("black","black","black","black","red",
+                                         "black","black","black","black","black",
+                                         "black","black","black","black","black")) #The unrooted tree with the strain responsible for COVID-19 highlighted in red 
+upgma_tree<-root(upgma_tree,c("Bat 6","Bat 9")) #Creating the root of this tree using outgroup rooting
+plot(upgma_tree, cex=0.6, tip.color = c("black","black","black","black","red",
+                                        "black","black","black","black","black",
+                                        "black","black","black","black","black")) #The rooted tree created using the UPGMA algorithm with the strain responsible for COVID-19 highlighted in red (Figure 3.3)
+
+################################################################################
