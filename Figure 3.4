@@ -1,0 +1,12 @@
+###############################################################################
+#Using the neighbour joining algorithm to reconstruct a phylogenetic tree
+
+nj_tree <- nj(dist.ml(covid_region_B_aligned_phyDat)) #Calculating the distance between sequences using the NJ algorithm
+plot(nj_tree, cex=0.6, tip.color = c("black","black","black","black","red",
+                                        "black","black","black","black","black",
+                                        "black","black","black","black","black")) #The unrooted tree with the strain responsible for COVID-19 highlighted in red 
+nj_tree_rooted<-root(nj_tree,c("Bat 6","Bat 9")) #Creating the root of this tree using outgroup rooting
+plot(nj_tree_rooted, cex=0.6, tip.color = c("black","black","black","black","red",
+                                        "black","black","black","black","black",
+                                        "black","black","black","black","black")) #The rooted tree created using the NJ algorithm with the strain responsible for COVID-19 highlighted in red (Figure 3.4)
+###############################################################################
